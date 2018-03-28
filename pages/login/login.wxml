@@ -1,0 +1,34 @@
+<view class="head">
+	<image class="logo" catchtap="hackLogin" src="../../asset/logo.png"></image>
+	<view class="line title">全家爱吃</view>
+	<view class="line sub-title">北京酉福网络科技有限公司</view>
+</view>
+
+<view class="body">
+	<view class="info">该程序获取以下授权：</view>
+	<view class="item">· 获得您的公开信息（昵称、头像等）</view>
+	<view class="item">· 获得您微信绑定的手机号</view>
+</view>
+
+<view class="act">
+	<view class="btn" catchtap="cancel">拒绝</view>
+	<button class="btn primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点我登录</button>
+	<!--<view class="btn primary" catchtap="login">点我登录</view>-->
+</view>
+
+<view class="poparea {{showPop ? 'show' : ''}}" catchtap="hidePop">
+	<view class="pop {{ showPop ? 'show' : '' }}" catchtap="empty">
+		<form bindsubmit="login">
+		<view class="title">验证您的手机号</view>
+		<view class="line">
+			<input name="phone" type="number" maxlength="11" placeholder="请输入手机号"/>
+		</view>
+		<view class="line">
+			<input name="code" type="number" placeholder="请输入验证码"/>
+			<button wx:if="{{time <=0 }}" class="code" form-type="submit" data-type="getCode">获取验证码</button>
+			<view wx:if="{{time>0}}" class="code">{{time}} s</view>
+		</view>
+		<button class="btn" form-type="submit" data-type="login">登录</button>
+		</form>
+	</view>
+</view>

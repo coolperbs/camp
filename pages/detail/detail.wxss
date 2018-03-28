@@ -1,0 +1,179 @@
+@import '../../widgets/modules/modules.wxss';
+page { width: 100%; height : 100%; font-size : 28rpx; background-color: #efefef; }
+.page-gp-detail{
+    background-color: #f2f2f2;
+    height: 100%;
+}
+.page-gp-detail .group-info{
+    background-color: #f2f2f2;
+}
+.page-gp-detail .group-info .ware-detail{
+    display: flex;
+    background-color: white;
+    margin-bottom: 20rpx;
+    width:710rpx;
+    padding: 0 20rpx;
+    padding-top: 20rpx;
+
+}
+.page-gp-detail .group-info .ware-detail .img-wrapper{
+    width:260rpx;
+    height: 260rpx;
+}
+.page-gp-detail .group-info .ware-detail .img-wrapper image{
+    width: 100%;
+    height: 100%;
+}
+.page-gp-detail .group-info .ware-detail .ware-info{
+    display: flex;
+    flex-direction: column;
+    width: 430rpx;
+    padding-left:20rpx;
+}
+.page-gp-detail .group-info .ware-detail .ware-info .title{
+    color: #474747;
+    font-size: 26rpx;
+    height: 80rpx;
+    margin-bottom: 50rpx;
+}
+.page-gp-detail .group-info .ware-detail .ware-info .sub-title{
+    color: #dbdbdb;
+    font-size: 24rpx;
+    margin-bottom: 30rpx;
+
+}
+.page-gp-detail .group-info .ware-detail .ware-info .group-count{
+    color: #474747;
+    font-size: 26rpx;
+    margin-bottom: 50rpx;
+}
+.page-gp-detail .group-info .ware-detail .ware-info .price{
+    color: #df393c;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.page-gp-detail .group-info .user-list{
+    display:flex;
+    flex-wrap:wrap;
+    width:710rpx;
+    padding: 20rpx;
+    justify-content:center;
+    background-color:white;    
+}
+.page-gp-detail .group-info .user-list .gp-user{
+    width:70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    margin-right: 4rpx;
+    position: relative;
+}
+.page-gp-detail .group-info .user-list .gp-user.join{
+    border:1px solid #df393c;
+}
+.page-gp-detail .group-info .user-list .gp-user .head{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.page-gp-detail .group-info .user-list .gp-user .gp-leader{
+    width:30rpx;
+    height:30rpx;
+    position:absolute;
+    z-index:10;
+    top:-11rpx;
+    right:-11rpx;    
+}
+
+.page-gp-detail .buybtn-wrapper{
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    padding-bottom:30rpx;    
+}
+.page-gp-detail .buybtn-wrapper .notice{
+    width:710rpx;
+    padding:20rpx;
+    text-align:center;
+    height:60rpx;
+    line-height:60rpx;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bolder;     
+}
+.page-gp-detail .buybtn-wrapper .notice image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.page-gp-detail .buybtn-wrapper .notice text{
+    font-size: 30rpx;
+    color:#df393c;
+    margin-left: 20rpx;
+}
+.page-gp-detail .buybtn-wrapper .notice text.suc{
+    color:#3dceae;
+}
+.page-gp-detail .page-btn-wrapper .pagebtn{
+    color:white;
+    width:710rpx;
+    border-radius:10rpx;
+    text-align:center;
+    /* padding:25rpx 0; */
+    background-color:#df393c;
+    margin:auto;
+    text-align: center!important;
+    /*margin-top: 10rpx;*/
+}
+.page-gp-detail .page-btn-wrapper .pagebtn.half{
+    width: 350rpx;
+}
+.page-gp-detail .buybtn-wrapper .page-btn-wrapper{
+    position:fixed;
+    bottom:15px;
+    width:710rpx;
+    left:20rpx;
+    display: flex;
+}
+.page-gp-detail .recommond{
+    background-color: white;
+    margin-top: 20rpx;
+}
+.page-gp-detail .recommond .menu{
+    display:flex;
+    width:720rpx;
+    padding:25rpx 15rpx;
+    border-bottom:1px solid #f0f0f0;
+    margin:auto;
+    
+}
+.page-gp-detail .recommond .menu .menu-btn{
+    display:flex;
+    flex-direction:column;
+    width:240rpx;
+    justify-content:center;
+    align-items:center;    
+}
+.page-gp-detail .recommond .menu .menu-btn .logo{
+    width: 50rpx;
+    height: 50rpx;
+}
+.page-gp-detail .recommond .menu .menu-btn .txt{
+    color:#5e5f61;
+    font-size:26rpx;
+}
+.page-gp-detail .left-time{
+    text-align: center;
+    height: 50rpx;
+}
+.page-gp-detail .more.modules{
+    padding-bottom: 0;
+}
+.page-gp-detail .orgPrice{
+	color:#9f9f9f;
+	font-size: 25rpx;
+	margin-left: 20rpx;
+	margin-bottom: 6rpx;
+	text-decoration:line-through;
+}
+
