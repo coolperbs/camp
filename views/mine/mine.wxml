@@ -1,0 +1,213 @@
+<!-- <import src="../../widgets/modules/modules.wxml"/> -->
+<template name="mine">
+	<scroll-view 
+	style="height:{{mine.scrollHeight}}" 
+	bindscrolltolower="events"
+	data-func="getNextPage"
+	scroll-y="{{true}}" 
+	>
+		<view class="view-mine">
+			<view wx:if="{{mine.userinfo}}" >
+				<!-- 用户信息 START -->
+				<view class="user-info">
+					<view class="act-mod mod">
+						<view class="text">余额</view>
+						<view class="point">¥
+							{{mine.userinfo.showUserMoney.int}}.{{mine.userinfo.showUserMoney.float}}</view>
+						<view class="button"  catchtap="events" data-func="redirect" data-pagename="wallet" >充值</view>
+					</view>
+					<view class="logo mod">
+						<view class="icon">
+							<image src="{{mine.userinfo.avatarUrl}}" class="header-img"/>
+						</view>
+						<view class="level">
+							<image class="vip" src="../../asset/VIP.png"/>
+							<text class="vip-level">{{mine.userinfo.levelInfo.name}}
+							</text>	
+						</view>
+						<view class="name">{{mine.userinfo.nickName}}</view>
+					</view>
+					<view class="act-mod mod">
+						<view class="text">积分</view>
+						<view class="point">{{mine.userinfo.userPoint}}</view>
+						<view class="button"  catchtap="events" data-func="redirect" data-pagename="pointToMoney" >兑换</view>
+					</view>
+				</view>
+				<!-- 用户信息 END -->
+
+
+
+
+				<view class="order pannel">
+					<view class="header">
+						<view class="title">
+							我的订单
+						</view>
+						<view class="check-more" catchtap="events" data-status="1" data-func="goOrderList">
+							· 查看全部
+						</view>
+					</view>
+					<view class="content">
+						<view class="item" data-status="2" catchtap="events" data-func="goOrderList">
+							<image src="../../asset/pay.png" class="item-logo"/>
+							<text class="item-txt">待付款</text>
+						</view>
+						<view class="item" data-status="3" catchtap="events" data-func="goOrderList">
+							<image src="../../asset/deliver.png" class="item-logo"/>
+							<text class="item-txt">待发货</text>
+						</view>
+						<view class="item" data-status="4" catchtap="events" data-func="goOrderList">
+							<image src="../../asset/send.png" class="item-logo"/>
+							<text class="item-txt">待收货</text>
+						</view>
+						<view class="item" data-status="5" catchtap="events" data-func="goOrderList">
+							<image src="../../asset/finish.png" class="item-logo"/>
+							<text class="item-txt">已完成</text>
+						</view>
+					</view>
+				</view>
+
+
+				<view class="order groupon pannel">
+						<view class="header">
+							<view class="title">
+								我的拼团订单
+							</view>
+							<view class="check-more" catchtap="events" data-status="1" data-func="goGrouponOrderList">
+								· 查看全部
+							</view>
+						</view>
+						<view class="content">
+							<view class="item" data-status="2" catchtap="events" data-func="goGrouponOrderList">
+								<image src="../../asset/gp-pay.png" class="item-logo"/>
+								<text class="item-txt">待付款</text>
+							</view>
+							<view class="item" data-status="3" catchtap="events" data-func="goGrouponOrderList">
+								<image src="../../asset/gp-deliver.png" class="item-logo"/>
+								<text class="item-txt">代发货</text>
+							</view>
+							<view class="item" data-status="4" catchtap="events" data-func="goGrouponOrderList">
+								<image src="../../asset/gp-send.png" class="item-logo"/>
+								<text class="item-txt">待收货</text>
+							</view>
+							<view class="item" data-status="5" catchtap="events" data-func="goGrouponOrderList">
+								<image src="../../asset/gp-finish.png" class="item-logo"/>
+								<text class="item-txt">已完成</text>
+							</view>
+						</view>
+					</view>
+
+
+				<view class="my-service pannel">
+					<view class="header">
+						<view class="title">
+							我的服务
+						</view>
+					</view>
+					<view class="content">
+						<view class="item" data-status="1" catchtap="events" data-func="redirect" data-pagename="cashdetail">
+							<image src="../../asset/mine-cash.png" class="item-logo"/>
+							<text class="item-txt">余额</text>
+							<view class="cash">							
+								<text class="cash-pre">￥</text>
+								<text class="cash-int">{{mine.userinfo.showUserMoney.int}}</text>
+								<text class="cash-float">.{{mine.userinfo.showUserMoney.float}}</text>
+							</view>
+						</view>
+						<view class="item" data-status="1" catchtap="events" data-func="redirect" data-pagename="scoredetail">
+							<image src="../../asset/mine-score.png" class="item-logo"/>
+							<text class="item-txt">积分</text>
+							<view class="cash">					
+								<text class="cash-int">{{mine.userinfo.userPoint}}</text>
+							</view>
+						</view>
+						<view class="item" data-status="1" catchtap="events" data-func="goMyCoupon">
+							<image src="../../asset/coupons.png" class="item-logo"/>
+							<text class="item-txt">优惠券</text>
+						</view>
+						<view class="item" data-status="1" catchtap="events" data-func="goAddressList">
+							<image src="../../asset/location.png" class="item-logo"/>
+							<text class="item-txt">地址</text>
+						</view>
+						<view class="item" data-status="1" catchtap="events" data-func="goFavorite">
+							<image src="../../asset/favor.png" class="item-logo"/>
+							<text class="item-txt">收藏</text>
+						</view>
+						<view class="item" data-status="1" catchtap="events" data-func="goAftersale">
+							<image src="../../asset/aftersale.png" class="item-logo"/>
+							<text class="item-txt">售后</text>
+						</view>
+					</view>
+				</view>
+				<view class="my-service pannel">
+					<view class="header">
+						<view class="title">
+							我的分销
+						</view>
+					</view>
+					<view class="content">
+						<view class="item" data-status="1" catchtap="events" data-func="goFxTeam">
+							<image src="../../asset/fx-team.png" class="item-logo"/>
+							<text class="item-txt">我的团队</text>
+						</view>
+						<view class="item" data-status="1" catchtap="events" data-func="goFxMoney">
+							<image src="../../asset/fx-consumelist.png" class="item-logo"/>
+							<text class="item-txt">我的金额</text>
+						</view>
+						<view class="item" data-status="1" catchtap="events" data-func="goFxTakeMoney">
+							<image src="../../asset/fx-money.png" class="item-logo"/>
+							<text class="item-txt">我要提现</text>
+						</view>
+						<view class="item" data-status="1" catchtap="events" data-func="">
+							
+						</view>
+					</view>
+				</view>
+
+
+				<view class="my-service pannel">
+					<view class="header">
+						<view class="title">
+							其他
+						</view>
+					</view>
+					<view class="content">
+						<view class="item" data-status="1" catchtap="events" data-func="goJoin">
+							<image src="../../asset/join.png" class="item-logo"/>
+							<text class="item-txt">品牌加盟</text>
+						</view>
+						<view class="item" data-status="1" catchtap="events" data-func="goShopDetails">
+							<image src="../../asset/aboutus.png" class="item-logo"/>
+							<text class="item-txt">关于我们</text>
+						</view>
+					</view>
+				</view>
+
+
+				<block wx:if="{{mine.favorite && mine.favorite.data && mine.favorite.data.wareSkus && mine.favorite.data.wareSkus.length }}">
+					<view class="recommond pannel">
+						<view class="header">
+							<view class="title">猜你喜欢</view>
+						</view>
+						<view class="content modules">
+							<template is="1-2" data="{{...mine.favorite}}"></template>
+						</view>
+					</view>
+				</block>
+				<view wx:else class="block"></view>
+			</view>
+			<view wx:else>
+				<template is="need-login"></template>
+			</view>
+		</view>
+	</scroll-view>
+</template>
+
+<template name= "need-login">
+	<view class="goLogin-wrapper">
+		<image class="login-logo" src="../../asset/empty-data.png" ></image>
+		<view class="login-msg">请登录商城</view>
+		<navigator url="../login/login" class="login-btn">去登录</navigator>
+	</view>
+</template>
+

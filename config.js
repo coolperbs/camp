@@ -3,29 +3,14 @@ var environment = 'test', //当前的环境
 	hostCfg, HOST, config, _fn;
 
 hostCfg = {//host
-	trading : {
-		// dev:protocol+'devapi.trading.com',
-		dev : protocol + 'devapi.trading.com',
-		//test : protocol + 'devapi.trading.nx.com:9000'
-		test : protocol + '47.92.75.170:9000'
-	},
-	appGateWay : {
-		//test : protocol + 'app.gateway.nx.com:9000'
-		test : protocol + '47.92.75.170:8119'
-	},
-	activeGateWay : {
-		test : protocol + '47.92.75.170:8159'
-	}
+	test : protocol + '127.0.0.1'
 };
 
 _fn = {
 	createHost : function( hostCfg, env ) {
 		var result = {}, p, u;
 
-		for ( p in hostCfg ) {
-			result[p] = hostCfg[p][env];
-		}
-		return result;
+		return hostCfg[environment]
 	}
 }
 
@@ -35,9 +20,7 @@ HOST = _fn.createHost( hostCfg, environment );
 config = {
 	env : environment,
 	protocol : protocol,
-	HOST : HOST,
-	host : 'https://shopgateway.yimeixinxijishu.com',
-	actHost : 'https://actgateway.yimeixinxijishu.com'
+	host : HOST
 };
 
 module.exports = config;

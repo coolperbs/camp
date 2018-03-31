@@ -1,9 +1,9 @@
-@import "../../views/home/home.wxss";
-@import "../../views/sort/sort.wxss";
+@import "../../views/activelist/activelist.wxss";
+/* @import "../../views/sort/sort.wxss";
 @import "../../views/cart/cart.wxss";
 @import "../../views/mine/mine.wxss";
 @import "../../views/orders/orders.wxss";
-@import "../../widgets/commentreward/commentreward.wxss";
+@import "../../widgets/commentreward/commentreward.wxss"; */
 
 page { background-color: #f8f8f8; }
 

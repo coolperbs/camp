@@ -251,37 +251,6 @@ var _fn = {
 			}
 		});	
 	},
-	// updateOrder:function(orderId){
-	// 	if(!orderId){
-	// 		return;
-	// 	}
-	// 	orderService.getOrderDetail({//更新订单状态
-	// 		id:orderId
-	// 	},function(res){
-	// 		if(res.code==='0000'&&res.success===true){
-	// 			var orderList = dataHandler.getData()['orderList'];
-	// 			var orderInfo = res.data;
-	// 			var newOrderList = orderList.map((v,k)=>{
-	// 				if(v.id === orderId){
-	// 					v.id = orderInfo.id;
-	// 					v.orderStatus = orderInfo.orderStatus;
-	// 					v.statusInfo = orderService.getOrderStatusMining(orderInfo.orderStatus);
-	// 					v.statusStr = orderInfo.statusStr;
-	// 					v.commentNum = orderInfo.commentNum;
-	// 				}
-	// 				return v;
-	// 			});
-	// 			dataHandler.setData({
-	// 				orderList:newOrderList
-	// 			});
-	// 		}else{
-	// 			wx.showToast({
-	// 				title:"更新订单状态失败"
-	// 			});
-	// 			console.error("更新订单状态失败",res.msg);
-	// 		}
-	// 	});
-	// },
 	refreshData:function(){
 		var curPage = dataHandler.getData().currentPage/1;
 		var updateOrderPage = dataHandler.getData().updatePageNo/1;
@@ -549,7 +518,7 @@ var _fn = {
 			service.trade.wxPay( {// 3.唤醒微信支付
 				timeStamp : data.timeStamp,
 				nonceStr : data.nonce_str,
-				package : 'prepay_id=' + data.prepay_id,
+				package : 'prepay_id=' + data.prepaacy_id,
 				signType : 'MD5',
 				paySign : data.sign					
 			}, function( wxRes ) {

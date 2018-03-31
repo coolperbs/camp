@@ -1,4 +1,4 @@
-@import "../../common/basestyle/base.wxss";
+@import "../../common/basestyle/basestyle.wxss";
 
 page{
 	height: 100%

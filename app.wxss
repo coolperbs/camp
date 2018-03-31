@@ -1,3 +1,4 @@
+@import "zanUI/index.wxss";
 /**app.wxss**/
 .container {
   height: 100%;

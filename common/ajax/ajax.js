@@ -28,7 +28,6 @@ _fn = {
   wrapParam : function( caller, object ) {
     var userInfo = wx.getStorageSync( 'userinfo' ) || {};
     object.param = object.param || {};
-    object.param.venderId = caller.globalParam.uid;
     return {
       param : JSON.stringify( object.param ) || '',
       token : userInfo.token || ''
