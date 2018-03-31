@@ -1,4 +1,4 @@
-/* @import '../../widgets/modules/modules.wxss'; */
+
 page { width: 100%; height : 100%; font-size : 28rpx; background-color: #efefef; }
 
 .price { display: inline-block; font-size : 48rpx; color : #df393c; }

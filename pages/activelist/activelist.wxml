@@ -1,17 +1,16 @@
 <!-- <import src="../../widgets/modules/modules.wxml"/> -->
 
-<template name="activelist">
+<view name="page-activelist">
 	<scroll-view scroll-y="{{true}}" 
-	bindscrolltolower="events"
-	data-func="getNext" 
+	bindscrolltolower="getNext"
 	class="view-activelist"
 	scroll-y="{{true}}"
-	style="height:{{activeListData.height}}">
-		<block wx:for="{{activeListData.activelist}}" wx:key='id'>
+	style="height:{{height}}">
+		<block wx:for="{{activelist}}" wx:key='id'>
 			<template is="gouponitem-tpl" data="{{...item}}"></template>
 		</block>
 	</scroll-view>
-</template>
+</view>
 
 
 

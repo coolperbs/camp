@@ -1,4 +1,4 @@
-var ajax = require('../../common/ajax/ajax');
+var ajax = require('../request/request');
 
 class List{
 	constructor(props) {
@@ -87,30 +87,53 @@ class List{
 			param.currentPage = page;
 		}
 		var self = this;
-		ajax.query({//换ajax。query
+		ajax.get({//换ajax。query
 			url:this.url,
-			param:param
-		},function(res){
-			var list = self.getList(res)||[];
-			list = list.map((v,k)=>{
-				v.eventParam= JSON.stringify({
-					page:page
+			data:param,
+			withKey:param.withKey,
+			onSuccess:function(res){
+				var list = self.getList(res)||[];
+				list = list.map((v,k)=>{
+					v.eventParam= JSON.stringify({
+						page:page
+					});
+					return v;
 				});
-				return v;
-			});
-			var resData = {
-				code : res.code,
-				data:{
-					page:param.currentPage,
-					list:list,
-					hasMore:self.getHasMore(res)
+				var resData = {
+					code : res.code,
+					data:{
+						page:param.currentPage,
+						list:list,
+						hasMore:self.getHasMore(res)
+					}
+				}
+	
+				if(callback && typeof callback === 'function'){
+					callback(resData);
+				}
+
+			},
+			onError:function(res){//没有接口。。。
+				var list = self.getList(res)||[];
+				list = list.map((v,k)=>{
+					v.eventParam= JSON.stringify({
+						page:page
+					});
+					return v;
+				});
+				var resData = {
+					code : res.code,
+					data:{
+						page:param.currentPage,
+						list:list,
+						hasMore:self.getHasMore(res)
+					}
+				}
+	
+				if(callback && typeof callback === 'function'){
+					callback(resData);
 				}
 			}
-
-			if(callback && typeof callback === 'function'){
-				callback(resData);
-			}
-
 		});
 	}
 }

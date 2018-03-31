@@ -1,12 +1,24 @@
 {
   "pages":[
-    "pages/index/index",
+    "pages/activelist/activelist",
     "pages/detail/detail"
   ],
   "window":{
-    "backgroundTextStyle":"#f0f0f0",
+    "backgroundColor":"#f0f0f0",
     "navigationBarBackgroundColor": "#8bc34a",
     "navigationBarTitleText": "camp",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/activelist/activelist",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/activelist/activelist",
+      "text": "订单"
+    },{
+      "pagePath": "pages/activelist/activelist",
+      "text": "我"
+    }]
   }
 }

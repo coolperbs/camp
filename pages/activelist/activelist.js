@@ -1,44 +1,38 @@
-var weigetUtil = require('../../common/utils/weigetUtil');
-var Tab = weigetUtil.tab;
-var List = weigetUtil.List;
-var config = require('../../config');
-var us = require('../../lib/underscore');
+var List = require('../../common/utils/list');
 var utils = require('../../common/utils/utils');
-var host = config.host;
+var config = require('../../common/config');
+var host = config.api;
 
 
 
-var currentPage = 'activelist'
 var listWeiget//列表组建
-var dataHandler//数据操作
 
-var events = {
-	getNext:function(caller,e){
-		// debugger;
+
+Page({
+	onShow:function(){
+		var self = this;
+		listWeiget = null;
+        _fn.init(self);
+	},
+	getNext:function(e){
+		console.log(333);
 		listWeiget.next();
 	},
-	toDetail:function(caller,e){
+	toDetail:function(e){
 		var id = e.currentTarget.dataset.id;
 		wx.navigateTo({
 			url:'../detail/detail?id='+id
 		});
 	}
-}
-var handle = {
-    render:function(callerPage){
-		listWeiget = null;
-		dataHandler = null;
-        _fn.init(callerPage);
-	},
-	events:events
-};
+})
+
 var _fn = {
     init:function(page){
-		dataHandler = new DataHandler(page);
+		var self = page;
         wx.getSystemInfo({
 			success:function(res){
-				dataHandler.setData({
-					height:(utils.toRpx(res.windowHeight-50))+'rpx'
+				self.setData({
+					height:(utils.toRpx(res.windowHeight))+'rpx'
 				});
 			}
 		});
@@ -46,8 +40,11 @@ var _fn = {
             url:host+'/groupon/product/list',
 			// url:host+'/app/address/list',
 			// isSingle:true,
+			param:{
+				withKey:false
+			},
 			render:function(data){
-				dataHandler.setData({
+				self.setData({
 					activelist:data.totalData
 				});
 			},
@@ -77,36 +74,6 @@ var _fn = {
 		listWeiget.next();
 	},
 
-}
-var DataHandler = function(callerPage){
-	this.callerPage = callerPage;
-	this.activeListData = {};
-	this.setData = function(data){
-		var isCurrentPage = this.callerPage.data.currentView == currentPage;
-		if(!isCurrentPage){
-			return;
-		}
-		var activeListData = us.extend(this.activeListData,data);
-		var viewData = this.callerPage.data.viewData || {};
-		viewData.activeListData = activeListData
-		this.callerPage.setData({
-			viewData:viewData
-		});
-	};
-	this.getData = function(){
-		return this.activeListData;
-	};
-	this.clearData = function(){
-		var dataLoading = this.activeListData.dataLoading;//是否正在请求的锁不应该被清空
-		this.activeListData = {
-			dataLoading:dataLoading
-		};
-		this.callerPage.setData({
-			viewData:{
-				activeListData:this.activeListData
-			}
-		});
-	}
 }
 
 var mockData = {
@@ -401,4 +368,3 @@ var mockData = {
 　　}
 }
 
-module.exports = handle;

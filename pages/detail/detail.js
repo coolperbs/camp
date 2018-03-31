@@ -1,14 +1,5 @@
-var ajax = require( '../../common/ajax/ajax' ),
-	// service = require( '../../service/service' ),
-	utils = require( '../../common/utils/utils' ),
-	// modules = require( '../../widgets/modules/modules.js' ),
-	zan = require('../../zanUI/index'),
+var zan = require('../../common/zanUI/index'),
 	app = getApp(),
-	pageParam, hasMore, 
-	currentPage = 0,
-	isGetMore = false,
-	hasMore = true,
-	buyType = 1, // 1为购物车购买，2为直接购买
 	_fn,
 	activePeopleInfo;
 	// activePeopleInfo = {
