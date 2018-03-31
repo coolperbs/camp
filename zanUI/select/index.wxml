@@ -11,7 +11,13 @@
         <view
           class="zan-cell__bd"
           style="{{ parse.getItemStyle(item, checkedValue, activeColor) }}"
-        >{{ item.name }}</view>
+        >
+        <block wx:if="{{item.name}}">
+          
+        </block>
+        {{  }}
+          
+        </view>
         <view wx:if="{{ item.value === checkedValue }}" class="zan-cell__ft">
           <icon type="success_no_circle" color="{{ parse.getColor(activeColor) }}" size="14"></icon>
         </view>

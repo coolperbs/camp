@@ -2,7 +2,7 @@ var ajax = require( '../../common/ajax/ajax' ),
 	// service = require( '../../service/service' ),
 	utils = require( '../../common/utils/utils' ),
 	// modules = require( '../../widgets/modules/modules.js' ),
-	zan = require('../../zanUI/index');
+	zan = require('../../zanUI/index'),
 	app = getApp(),
 	pageParam, hasMore, 
 	currentPage = 0,
@@ -29,6 +29,22 @@ var ajax = require( '../../common/ajax/ajax' ),
 	//	isShow:false//是否显示
 	// };
 Page({
+	data:{
+		config:{
+			name: {
+				focus: true,
+				title: '姓名',
+			},
+			phone: {
+				inputType: 'number',
+				title: '联系方式',
+			},
+			idCard: {
+				inputType: 'number',
+				title: '身份证',
+			},
+		}
+	},
 	onLoad : function( param ) {
 		
 	},
@@ -44,7 +60,7 @@ Page({
 			'tab.current' : data.id
 		} );
 	},
-	reset:function(){//点击空白，全部消失
+	toggleBottomPopup:function(){//点击空白，全部消失
 		var self = this;
 		self.setData({
 			activePeopleInfo:{}
@@ -65,10 +81,16 @@ Page({
 		});
 	},
 	join:function(){//参与
+		var self = this;
 		var isLogin = _fn.checkLogin();
+		if(!isLogin){
+			_fn.goLoginPage();
+			return;
+		}
 		var activePeopleInfo = self.data.activePeopleInfo||{};
 		if(isLogin){
 			activePeopleInfo.isShow = true;
+			activePeopleInfo.currentStep = 1;
 			self.setData({activePeopleInfo:activePeopleInfo});
 		}else{
 			_fn.goLoginPage();
@@ -160,7 +182,7 @@ _fn = {
 	},
 	checkLogin:function(){//检查是否登录
 		console.log('checkLogin');
-		return false;
+		return true;
 	},
 	goLoginPage:function(){
 		console.log('goLoginPage');

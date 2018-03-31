@@ -140,50 +140,43 @@
     </view>
 
     <view class="buttons" wx:if="{{ !pageData.seckillVO }}">
-        <view class="btn primary" catchtap="join">立即参与</view>
+        <view class="btn primary" catchtap="join">立即报名</view>
     </view>
 </view>
 
 
 <view class="popup-example--bottom zan-popup zan-popup--bottom {{ activePeopleInfo.isShow ? 'zan-popup--show' : ''}}">
     <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
-    <view class="zan-popup__container">
-        <view class="zan-btns">
-        <button class="zan-btn" catchtap="toggleBottomPopup">
-            <block wx:if="{{activePeopleInfo.currentStep/1===1}}">
-                <template is="addParent" data="{{...activePeopleInfo.parent}}"></template>
+    <view class="zan-popup__container chosePeople">
+            <block wx:if="{{activePeopleInfo.currentStep/1===12}}">
+                <template is="addParent" data="{{...activePeopleInfo.parent,config}}"></template>
             </block>
-            <block wx:if="{{activePeopleInfo.currentStep/1===2}}">
+            <block wx:if="{{activePeopleInfo.currentStep/1===1}}">
                 <template is="addChildren" data="{{...activePeopleInfo.children}}"></template>
             </block>
-        </button>
-        </view>
     </view>
 </view>
 
 
-<template class="addParent-tpl">
+<template name="addParent" class="addParent-tpl">
         <view class="zan-panel-title">家长信息</view>
         <view class="zan-panel">
           <template
             is="zan-field"
-            data="{{ ...config.base.name, value }}"></template>
+            data="{{ ...config.name }}"></template>
           <template
             is="zan-field"
-            data="{{ ...config.base.tel }}"></template>
+            data="{{ ...config.phone }}"></template>
           <template
             is="zan-field"
-            data="{{ ...config.base.address }}"></template>
-          <template
-            is="zan-field"
-            data="{{ ...config.base.disabled }}"></template>
+            data="{{ ...config.idCard }}"></template>
         </view>
         <view class="bottom">
             <view class="btn back"></view>
             <view class="btn "></view>
         </view>
 </template>
-<template class="addChildren-tpl">
+<template name="addChildren" class="addChildren-tpl">
     addChild
 </template>
 
