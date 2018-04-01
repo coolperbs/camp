@@ -2,23 +2,7 @@ var zan = require('../../common/zanUI/index'),
 	app = getApp(),
 	_fn,
 	activePeopleInfo;
-	// activePeopleInfo = {
-	// 	parent:{
-	// 		name:'',
-	// 		phone:'',
-	// 		id:''
-	// 	},
-	// 	children:[
-	// 		{
-	// 			key:'',
-	// 			name:'',
-	// 			sex:'',
-	// 			age:''
-	// 		}
-	// 	],
-	// 	currentStep:0,//当前的步骤
-	//	isShow:false//是否显示
-	// };
+	
 Page({
 	data:{
 		config:{
@@ -68,8 +52,12 @@ Page({
 			activePeopleInfo.parent = {};
 		}
 		self.setData({
-			activePeopleInfo:{}
+			activePeopleInfo:activePeopleInfo
 		});
+	},
+	selectChild:function(){
+		console.log('selelct Child')
+
 	},
 	join:function(){//参与
 		var self = this;
@@ -121,8 +109,8 @@ Page({
 		var activePeopleInfo = self.data.activePeopleInfo||{};
 		var children = activePeopleInfo.children || [];
 		var errMsg = ""
-		if(childrend.length<=0){
-			errMsg = "请选择参加活动的孩子"
+		if(children.length<=0){
+			// errMsg = "请选择参加活动的孩子"
 		}
 		if(errMsg){
 			wx.showToast({msg:errMsg});

@@ -1,7 +1,13 @@
 {
   "pages":[
     "pages/activelist/activelist",
-    "pages/detail/detail"
+    "pages/user/user",
+    "pages/orderlist/orderlist",
+    "pages/detail/detail",
+    "pages/checkout/checkout",
+    "pages/orderdetail/orderdetail",
+    "pages/childlist/childlist",
+    "pages/childdetail/childdetail"
   ],
   "window":{
     "backgroundColor":"#f0f0f0",
@@ -14,10 +20,10 @@
       "pagePath": "pages/activelist/activelist",
       "text": "首页"
     }, {
-      "pagePath": "pages/activelist/activelist",
+      "pagePath": "pages/orderlist/orderlist",
       "text": "订单"
     },{
-      "pagePath": "pages/activelist/activelist",
+      "pagePath": "pages/user/user",
       "text": "我"
     }]
   }

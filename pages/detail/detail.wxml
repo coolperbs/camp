@@ -1,5 +1,5 @@
-<import src="../../zanUI/toast/index.wxml" />
-<import src="../../zanUI/field/index.wxml" />
+<import src="../../common/zanUI/toast/index.wxml" />
+<import src="../../common/zanUI/field/index.wxml" />
 
 <scroll-view  scroll-y="{{true}}" class="main {{pop.show ? 'showpop' : ''}}" >
     <view class="head">
@@ -148,18 +148,18 @@
 <view class="popup-example--bottom zan-popup zan-popup--bottom {{ activePeopleInfo.isShow ? 'zan-popup--show' : ''}}">
     <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
     <view class="zan-popup__container chosePeople">
-            <block wx:if="{{activePeopleInfo.currentStep/1===12}}">
-                <template is="addParent" data="{{...activePeopleInfo.parent,config}}"></template>
-            </block>
-            <block wx:if="{{activePeopleInfo.currentStep/1===1}}">
-                <template is="addChildren" data="{{...activePeopleInfo.children}}"></template>
-            </block>
+        <block wx:if="{{activePeopleInfo.currentStep/1===1}}">
+            <template is="addParent" data="{{...activePeopleInfo.parent,config}}"></template>
+        </block>
+        <block wx:if="{{activePeopleInfo.currentStep/1===2}}">
+            <template is="addChildren" data="{{...activePeopleInfo.children}}"></template>
+        </block>
     </view>
 </view>
 
 
 <template name="addParent" class="addParent-tpl">
-        <view class="zan-panel-title">家长信息</view>
+        <view class="zan-panel-title">请填写家长信息</view>
         <view class="zan-panel">
           <template
             is="zan-field"
@@ -172,15 +172,57 @@
             data="{{ ...config.idCard }}"></template>
         </view>
         <view class="bottom">
-            <view class="btn back"></view>
-            <view class="btn "></view>
+            <view class="zan-col-24 btn next" catchtap="handleParent">下一步</view>
         </view>
 </template>
 <template name="addChildren" class="addChildren-tpl">
-    addChild
+    <scroll-view style="height:600rpx" scroll-y="{{true}}">
+        <view class="title">
+            <view class="zan-panel-title">请填写孩子信息</view>
+            <view class="btn addChild" catchtap="toEditChildPage">添加孩子</view>
+        </view>
+        <view class="zan-panel">
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+            <template is="child-record"></template>
+        </view>
+    </scroll-view>
+    <view class="bottom">
+        <view  catchtap="backward" class="zan-col-12 btn back">返回</view>
+        <view class="zan-col-12 btn next" catchtap="handleChild">下一步</view>
+    </view>
 </template>
 
 <template is="zan-toast" data="{{ zanToast }}"></template>
+
+<template name="child-record">
+    <view class="child-record">
+        <view class="zan-col-4 logo-wrapper">
+            <image catchtap="selectChild" src="https://camp.theforward.xyz/img/thumbnail_demo.jpeg" class="select logo"></image>
+        </view>
+        <view class="zan-col-5">
+            <text class="name">王小二</text>
+        </view>
+        <view class="zan-col-5">
+            <text class="sex">男</text>
+        </view>
+        <view class="zan-col-5">
+            <text class="age">10岁</text>
+        </view>
+        <view class="zan-col-5  logo-wrapper">
+            <image catchtap="toEditChildPage" src="https://camp.theforward.xyz/img/thumbnail_demo.jpeg" class="logo"></image>
+        </view>
+    </view>
+</template>
 
 
 

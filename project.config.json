@@ -30,12 +30,42 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
 					"name": "详情",
 					"pathName": "pages/detail/detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "结算",
+					"pathName": "pages/checkout/checkout",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orderdetail/orderdetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orderlist/orderlist",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "孩子详情",
+					"pathName": "pages/childdetail/childdetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "孩子列表",
+					"pathName": "pages/childlist/childlist",
 					"query": ""
 				}
 			]

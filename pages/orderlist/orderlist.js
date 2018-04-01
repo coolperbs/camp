@@ -15,12 +15,13 @@ Page({
         _fn.init(self);
 	},
 	getNext:function(e){
+		console.log(333);
 		listWeiget.next();
 	},
 	toDetail:function(e){
 		var id = e.currentTarget.dataset.id;
 		wx.navigateTo({
-			url:'../detail/detail?id='+id
+			url:'../orderdetail/orderdetail?id='+id
 		});
 	}
 })
@@ -44,7 +45,7 @@ var _fn = {
 			},
 			render:function(data){
 				self.setData({
-					activelist:data.totalData
+					orderlist:data.totalData
 				});
 			},
 			getList:function(res){
